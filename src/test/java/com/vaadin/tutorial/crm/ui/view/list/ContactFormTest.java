@@ -36,6 +36,17 @@ public class ContactFormTest {
     }
 
     @Test
+    public void formFieldsPopulated() {
+        ContactForm form = new ContactForm(companies);
+        form.setContact(sanderJ);
+        assertEquals("Sander", form.firstName.getValue());
+        assertEquals("J", form.lastName.getValue());
+        assertEquals("sander@j.com", form.email.getValue());
+        assertEquals(company1, form.company.getValue());
+        assertEquals(Contact.Status.Contacted, form.status.getValue());
+    }
+
+    @Test
     public void saveEventHasCorrectValues(){
         ContactForm form = new ContactForm(companies);
         Contact contact = new Contact();
